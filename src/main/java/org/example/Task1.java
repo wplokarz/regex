@@ -55,9 +55,12 @@ public class Task1 {
     public boolean printWordsStartingWithDe(String str) {
         Pattern pattern = Pattern.compile("\\bde[a-z]*");
         Matcher matcher = pattern.matcher(str);
-        List<String> listOfMatchingWords = getWordsFromString(matcher);
-        boolean isEmpty = listOfMatchingWords.isEmpty();
-        if (isEmpty) {
+        List<String> listOfMatchingWords = new ArrayList<>();
+        while (matcher.find()) {
+            String matchText = matcher.group(0);
+            listOfMatchingWords.add(matchText);
+        }
+        if (listOfMatchingWords.isEmpty()) {
             System.out.println("No matches found");
             return false;
         }
@@ -65,15 +68,5 @@ public class Task1 {
             System.out.println(word);
         }
         return true;
-    }
-
-    // create a list of words that are matching matcher
-    private List<String> getWordsFromString(Matcher matcher) {
-        List<String> textFromString = new ArrayList<>();
-        while (matcher.find()) {
-            String matchText = matcher.group(0);
-            textFromString.add(matchText);
-        }
-        return textFromString;
     }
 }
