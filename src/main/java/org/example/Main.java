@@ -15,9 +15,9 @@ public class Main {
                 "[Integration_test_Contract], total number of orders successfully processed: [2]\n";
         Task1 task = new Task1();
         // Find and return true or false if String contains orderUUID
-        System.out.println(task.checkIfOrder(textToLook));
+        System.out.println(task.checkUUIDexistsInString(textToLook));
         // Find and return orderUUID substring from string
-        System.out.println(task.checkOrderNumber(textToLook));
+        System.out.println(task.getUUIDnumber(textToLook));
         // Find and return user email from string
         System.out.println(task.getUserEmail(emailToLook));
         // find and return how many orders were created from this string
